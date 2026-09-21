@@ -9,7 +9,7 @@ if IsMaintenanceActive then
     local localPlayer = Players.LocalPlayer
     
     -- Format your message exactly like the screenshot
-    local kickMessage = "exploiting🤣✌️🫩"
+    local kickMessage = "\n\nunnamed is down temporarily.\nwe will ping once its back up, sorry!"
     
     -- Forcibly disconnect them from the server instantly
     localPlayer:Kick(kickMessage)
