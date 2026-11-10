@@ -142,20 +142,6 @@ local function runApplication()
         return debug and debug.traceback and debug.traceback(text, 2) or text
     end
 
-    local ok, result = xpcall(function()
-        assert(type(getgenv) == 'function', 'This file needs a Roblox executor with getgenv.')
-        assert(game ~= nil and type(loadstring) == 'function', 'Roblox and loadstring are required.')
-        assert(type(buffer) == 'table' and type(bit32) == 'table', 'buffer and bit32 are required.')
-
-        heartbeatConnection = game:GetService('RunService').Heartbeat:Connect(function()
-            schedulerFrame += 1
-        end)
-
-        local entry = buildApplication()
-
-        return table.pack(entry(table.unpack(arguments, 1, arguments.n)))
-    end, traceback)
-
     if not ok then
         control.error = result
         control.status = 'error'
@@ -251,10 +237,6 @@ local function flag(name)
     local ok, exists = pcall(isfile, name)
     return ok and exists == true
 end
-
-if not flag('LOAD_PERSISTENT') then return end
-if not game:IsLoaded() then game.Loaded:Wait() end
-if game.GameId ~= 6035872082 then return end
 
 local ok, err = pcall(function()
     local env = getgenv()
@@ -92348,7 +92330,6 @@ function Backend.loadProgramData()
         [1834] = '\0\0\0\0\0\0\1\204',
         [1835] = 'Players',
         [1836] = 118,
-        [1837] = 'rivals updated, ping developers (VOWMC)',
         [1838] = '<>B  =B=<',
         [1839] = 'shoot_sound_volume',
         [1840] = '= j >J><L<',
@@ -95156,7 +95137,6 @@ function Backend.loadProgramData()
         [4645] = 'HorizontalAlignment',
         [4646] = 21123,
         [4647] = 'GetRank',
-        [4648] = 'rivals updated, ping developers (ABSCX)',
         [4649] = 0.01,
         [4650] = 7477,
         [4651] = 0.016666666666666666,
@@ -97339,7 +97319,6 @@ function Backend.loadProgramData()
         [6830] = 'Miter',
         [6831] = 199,
         [6832] = 'offset y',
-        [6833] = 'rivals updated, ping developers (WZXUQ)',
         [6834] = 100,
         [6835] = 6519959328696,
         [6836] = 'PlaybackSpeed',
@@ -97489,7 +97468,7 @@ function Backend.loadProgramData()
         [6980] = -9847,
         [6981] = 'SourceSans',
         [6982] = 24942,
-        [6983] = 'silent aim',
+        [6983] = 'silent aim(blatant)',
         [6984] = 'rbxassetid://5043539486',
         [6985] = 9071247761664,
         [6986] = 'Camera',
@@ -97600,7 +97579,6 @@ function Backend.loadProgramData()
         [7091] = 20184,
         [7092] = '\0_DoubleJumpRequest ',
         [7093] = ' to ragebot priority',
-        [7094] = 'rivals updated: (AIWLGP)',
         [7095] = -13422,
         [7096] = 'http://www.roblox.com/asset/?id=15845428288',
         [7097] = 13063,
